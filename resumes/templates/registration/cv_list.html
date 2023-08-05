@@ -1,0 +1,28 @@
+{% extends 'base_generic.html' %}
+
+{% block content %}
+  <h2>Your Resumes</h2>
+
+  {% for cv in cvs %}
+    <h3>{{ cv.name }}</h3>
+    <p>Email: {{ cv.email }}</p>
+    <p>Mobile: {{ cv.mobile }}</p>
+    <p>Github: {{ cv.github }}</p>
+    <p>LinkedIn: {{ cv.linkedin }}</p>
+    <p>Summary: {{ cv.summary }}</p>
+
+    <!-- Link to view this CV in more detail -->
+    <a href="{% url 'cv_detail' cv.id %}">View Details</a>
+
+    <!-- Link to download this CV as a PDF -->
+    <a href="{% url 'cv_pdf' cv.id %}">Download as PDF</a>
+  {% endfor %}
+
+  <h2>Create a new Resume</h2>
+
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}  <!-- This will display the form fields -->
+    <button type="submit">Create</button>
+  </form>
+{% endblock %}

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %}My Django Project{% endblock %}</title>
+</head>
+<body>
+    <header>
+        <h1>{% block header %}Welcome to my site{% endblock %}</h1>
+    </header>
+    
+    <main>
+        {% block content %}
+        <!-- This is where the content from child templates will be inserted -->
+        {% endblock %}
+    </main>
+    
+    <footer>
+        <p>{% block footer %}Copyright © 2023{% endblock %}</p>
+    </footer>
+</body>
+</html>

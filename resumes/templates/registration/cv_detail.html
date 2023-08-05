@@ -1,0 +1,21 @@
+{% extends 'base_generic.html' %}
+
+{% block content %}
+  <h2>Resume: {{ cv.name }}</h2>
+  <p>Email: {{ cv.email }}</p>
+  <p>Mobile: {{ cv.mobile }}</p>
+  <p>Github: {{ cv.github }}</p>
+  <p>LinkedIn: {{ cv.linkedin }}</p>
+  <p>Summary: {{ cv.summary }}</p>
+
+  <!-- Display CV's experiences, educations, and skills here -->
+
+  <!-- Link to edit this CV -->
+  <a href="{% url 'cv_update' cv.id %}">Edit</a> 
+
+  <!-- Link to delete this CV -->
+  <a href="{% url 'cv_delete' cv.id %}">Delete</a>
+
+  <!-- Link to download this CV as a PDF -->
+  <a href="{% url 'cv_pdf' cv.id %}">Download as PDF</a>
+{% endblock %}

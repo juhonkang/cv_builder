@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CV</title>
+    <style>
+        /* Add your CSS styling here */
+    </style>
+</head>
+<body>
+    <h1>Curriculum Vitae: {{ cv.name }}</h1>
+    <h2>Contact Information</h2>
+    <p>Email: {{ cv.email }}</p>
+    <p>Mobile: {{ cv.mobile }}</p>
+    <p>Github: {{ cv.github }}</p>
+    <p>LinkedIn: {{ cv.linkedin }}</p>
+    <h2>Summary</h2>
+    <p>{{ cv.summary }}</p>
+    <h2>Experience</h2>
+    {% for experience in cv.experiences.all %}
+    <div>
+        <h3>{{ experience.job_title }} at {{ experience.company }}</h3>
+        <p>{{ experience.start_date }} - {{ experience.end_date }}</p>
+        <p>{{ experience.job_description }}</p>
+    </div>
+    {% endfor %}
+    <h2>Education</h2>
+    {% for education in cv.educations.all %}
+    <div>
+        <h3>{{ education.university }}, {{ education.faculty }}</h3>
+        <p>GPA: {{ education.gpa }}</p>
+    </div>
+    {% endfor %}
+    <h2>Skills</h2>
+    {% for skill in cv.skills.all %}
+    <div>
+        <p>{{ skill.name }}: Level {{ skill.level }}</p>
+    </div>
+    {% endfor %}
+</body>
+</html>
